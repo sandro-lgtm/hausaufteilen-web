@@ -122,7 +122,7 @@ if (typeof document !== "undefined") {
     form.querySelector("button").disabled = true;
     try {
       const res = await fetch(RADAR + "/api/waitlist", { method: "POST", headers: { "Content-Type": "text/plain" },
-        body: JSON.stringify({ slug: SITE, email: d.email, utm }) });
+        body: JSON.stringify({ slug: SITE, email: d.email, utm, hp: d.website || "" }) });
       if (!res.ok) throw new Error("HTTP " + res.status);
       msg.className = "form-msg ok"; msg.textContent = "Danke. Ihre Anfrage ist angekommen – wir melden uns per E-Mail.";
       form.reset(); hit("/#anfrage-gesendet");
