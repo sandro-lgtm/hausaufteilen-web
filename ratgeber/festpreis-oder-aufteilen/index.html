@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Festpreis oder aufteilen lassen? Rechner sicherer Betrag gegen wahrscheinliches Ergebnis | Hausaufteilen</title>
+<meta name="description" content="Mehrfamilienhaus: festen Kaufpreis annehmen oder aufteilen und Wohnungen einzeln verkaufen lassen? Rechner mit Barwert, drei Szenarien und Gleichstand-Preis.">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://hausaufteilen.saguttarius.com/ratgeber/festpreis-oder-aufteilen/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231c2326'/%3E%3Cpath d='M6 26V12l10-6 10 6v14' fill='none' stroke='%23c9a96e' stroke-width='2'/%3E%3Cpath d='M16 12v14M6 19h20' stroke='%23c9a96e' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Hanken+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "Festpreis oder aufteilen lassen? Rechner sicherer Betrag gegen wahrscheinliches Ergebnis", "inLanguage": "de-DE", "url": "https://hausaufteilen.saguttarius.com/ratgeber/festpreis-oder-aufteilen/", "author": {"@type": "Organization", "name": "Saguttarius Capital GmbH"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Wie lange dauert das Aufteilen bis zum letzten Verkauf?", "acceptedAnswer": {"@type": "Answer", "text": "In Dresden dauert die Abgeschlossenheitsbescheinigung nach unserer Erfahrung fünf bis sechs Wochen, die Teilungserklärung beim Notar etwa eine weitere Woche. Danach kommt der Vertrieb: bei acht Wohnungen etwa ein halbes Jahr. Rechnen Sie zur Vorsicht mit zwölf bis achtzehn Monaten bis zum letzten Verkauf."}}, {"@type": "Question", "name": "Bekomme ich während des Verkaufs weiter die Miete?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Solange eine Wohnung Ihnen gehört, steht Ihnen ihre Miete zu. Mit dem Besitzübergang an den Käufer geht sie auf ihn über."}}, {"@type": "Question", "name": "Ab wann lohnt sich der Aufwand?", "acceptedAnswer": {"@type": "Answer", "text": "Das entscheiden Sie. Eine einfache Regel: Liegt der Mehrbetrag im mittleren Szenario unter etwa fünf Prozent des Festpreises, wiegt er Aufwand und Unsicherheit selten auf. Der Rechner zeigt das als rote Ampel."}}]}]}</script>
+</head>
+<body>
+<header class="top">
+  <a class="mark" href="/" aria-label="Hausaufteilen, Startseite">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 27V12l11-7 11 7v15" /><path d="M16 12v15M5 19.5h22" /></svg>
+    <span>Hausaufteilen</span>
+  </a>
+  <nav aria-label="Hauptnavigation">
+    <a href="/#prinzip">Prinzip</a>
+    <a href="/#rechner">Rechner</a>
+    <a href="/#fragen">Fragen</a>
+    <a href="/ratgeber/">Ratgeber</a>
+    <a class="nav-cta" href="/#anfrage">Erstcheck</a>
+  </nav>
+</header>
+<main id="inhalt" class="artikel">
+<nav class="crumbs" aria-label="Brotkrumen"><a href="/">Startseite</a> › <a href="/ratgeber/">Ratgeber</a></nav>
+<h1>Festpreis jetzt oder aufteilen lassen? Sicherer Betrag gegen wahrscheinliches Ergebnis</h1>
+<p class="lead">Wer ein vermietetes Mehrfamilienhaus abgeben will, hat oft zwei Angebote: einen festen Kaufpreis für das ganze Haus – oder das Haus behalten, in Wohnungen aufteilen lassen und einzeln verkaufen. Der zweite Weg bringt meist mehr, aber später und nicht sicher. Der Rechner stellt beides nebeneinander: in Euro und als Barwert, in drei Szenarien.</p>
+
+<form id="fp" class="acheck">
+<h2>Angebot 1: Festpreis</h2>
+<label>Fester Kaufpreis für das ganze Haus in € <input type="number" id="f-preis" min="0" step="10000" value="1000000"></label>
+<label>Zahlung nach wie vielen Monaten <input type="number" id="f-faellig" min="0" max="12" step="1" value="2"></label>
+<h2>Angebot 2: Aufteilen und wohnungsweise verkaufen</h2>
+<label>Wohnfläche gesamt in m² <input type="number" id="f-flaeche" min="1" step="10" value="600"></label>
+<label>Erwarteter Wohnungspreis in €/m² <input type="number" id="f-etw" min="0" step="50" value="2650"></label>
+<label>Kosten der Aufteilung in €/m² (Aufmaß, Abgeschlossenheit, Teilungserklärung, Notar) <input type="number" id="f-kosten" min="0" step="5" value="60"></label>
+<label>Vertriebsprovision in % vom Kaufpreis <input type="number" id="f-vertrieb" min="0" max="30" step="0.01" value="9.52"></label>
+<label>Bis zu diesem Betrag geht jeder Erlös an Sie (Schwelle) in € <input type="number" id="f-schwelle" min="0" step="10000" value="1000000"></label>
+<label>Ihr Anteil am Erlös oberhalb der Schwelle in % <input type="number" id="f-anteil" min="0" max="100" step="5" value="50"></label>
+<label>Monate bis zum ersten Verkauf <input type="number" id="f-start" min="0" max="24" step="1" value="3"></label>
+<label>Monate vom ersten bis zum letzten Verkauf <input type="number" id="f-dauer" min="1" max="36" step="1" value="9"></label>
+<h2>Was Ihr Geld sonst bringt</h2>
+<label>Nettokaltmiete des ganzen Hauses je Monat in € <input type="number" id="f-miete" min="0" step="100" value="3900"></label>
+<label>Rendite, die Sie mit dem Geld sonst erzielen, in % pro Jahr <input type="number" id="f-zins" min="0" max="15" step="0.5" value="3"></label>
+</form>
+<div id="f-erg" class="acheck-erg" aria-live="polite"></div>
+<script src="/festpreis.js"></script>
+<script>
+(function(){
+var el=function(i){return document.getElementById(i);},out=el("f-erg"),gezaehlt=false,eur=function(x){return Math.round(x).toLocaleString("de-DE")+" €";},v=function(i){return +el(i).value||0;};
+function rechne(ev){
+ var e={flaeche:v("f-flaeche")||1,etw:v("f-etw"),kostenM2:v("f-kosten"),vertrieb:v("f-vertrieb")/100,schwelle:v("f-schwelle"),anteil:v("f-anteil")/100,start:v("f-start"),dauer:v("f-dauer")||1,zins:v("f-zins")/100,miete:v("f-miete")};
+ var f={preis:v("f-preis"),faellig:v("f-faellig")},fp=Festpreis.festpreis({preis:f.preis,faellig:f.faellig,zins:e.zins,miete:e.miete});
+ var zeilen="<tr><td><b>Festpreis</b></td><td>"+eur(fp.nominal)+"</td><td>"+eur(fp.barwert)+"</td><td>–</td><td>"+f.faellig+"</td></tr>",schlecht=0,mittel=0;
+ Festpreis.SZENARIEN.forEach(function(s,i){var r=Festpreis.aufteilen(e,s),d=r.barwert-fp.barwert;if(i===1)mittel=d;if(i===2)schlecht=d;
+  zeilen+="<tr><td>Aufteilen: "+s.name+(i?" (Preis −"+(Math.round((1-s.preis)*1000)/10).toLocaleString("de-DE")+" %, Dauer ×"+s.dauer.toLocaleString("de-DE")+")":"")+"</td><td>"+eur(r.nominal)+"</td><td>"+eur(r.barwert)+"</td><td>"+(d>=0?"+":"−")+eur(Math.abs(d))+"</td><td>"+r.monate+"</td></tr>";});
+ var g=Festpreis.gleichstand(e,f),txt,kl;
+ if(schlecht>=0){kl="acheck-gruen";txt="<b>Aufteilen bringt selbst im schlechten Markt mehr als der Festpreis.</b> Der Mehrbetrag im mittleren Szenario: "+eur(mittel)+" Barwert.";}
+ else if(mittel>0.05*fp.barwert){kl="acheck-gelb";txt="<b>Aufteilen lohnt sich wahrscheinlich, ist aber nicht sicher.</b> Im mittleren Szenario "+eur(mittel)+" mehr, im schlechten Markt "+eur(-schlecht)+" weniger als der Festpreis.";}
+ else{kl="acheck-rot";txt="<b>Der Festpreis ist hier die bessere Wahl.</b> Im mittleren Szenario bringt Aufteilen "+(mittel>=0?"nur "+eur(mittel)+" mehr – zu wenig für Aufwand und Risiko.":eur(-mittel)+" weniger.");}
+ out.className="acheck-erg "+kl;
+ out.innerHTML="<p>"+txt+"</p><table class='zahlen'><thead><tr><th>Weg</th><th>Summe an Sie</th><th>Barwert heute</th><th>gegenüber Festpreis</th><th>Monate</th></tr></thead><tbody>"+zeilen+"</tbody></table><p>"+(g?"Gleichstand im mittleren Szenario bei einem Wohnungspreis von <b>"+g.toLocaleString("de-DE")+" €/m²</b>. Liegt der erzielbare Preis darunter, ist der Festpreis besser.":"Mit diesen Werten erreicht Aufteilen den Festpreis bei keinem Wohnungspreis.")+"</p>";
+ if(ev&&!gezaehlt&&window.hitEvent){window.hitEvent("festpreis-rechner");gezaehlt=true;}
+}
+el("fp").addEventListener("input",rechne);rechne();
+})();
+</script>
+<p class="hinweis">Modellrechnung ohne Gewähr. Annahmen: Kaufpreise fließen gleichmäßig über die Verkaufsmonate, die Kosten der Aufteilung zahlen Sie zu Beginn, die Miete unverkaufter Wohnungen bleibt bei Ihnen. Die drei Szenarien sind eigene Annahmen, keine Marktprognose. Steuern sind nicht berücksichtigt.</p>
+
+<h2>Warum zwei Zahlen: Summe und Barwert</h2>
+<p>Ein Euro in zwölf Monaten ist weniger wert als ein Euro heute, weil Sie ihn so lange nicht anlegen oder tilgen können. Der Barwert rechnet alle Zahlungen auf heute zurück, mit der Rendite, die Sie selbst angeben. Erst der Barwert macht den Festpreis und das Aufteilen vergleichbar. Bis zum Verkauf jeder Wohnung bekommen Sie weiter deren Miete; auch das rechnet der Rechner mit.</p>
+
+<h2>Wie sicher ist „sicher“?</h2>
+<p>Der Festpreis ist sicher, sobald der Kaufvertrag beurkundet und der Käufer finanziert ist. Beim Aufteilen ist nichts garantiert, auch nicht die Schwelle: Sie bekommt zuerst alle Kaufpreise, aber nur so viele, wie tatsächlich eingehen. Wer auf Nummer sicher gehen will, fragt nach einer Absicherung, etwa einer Ankaufszusage für Wohnungen, die nach Ablauf der Frist noch nicht verkauft sind, oder einer Bankbürgschaft. Beides kostet den Anbieter Geld und senkt meist Ihren Anteil.</p>
+
+<h2>Worauf es im Vertrag ankommt</h2>
+<ul>
+<li><b>Frist:</b> Bis wann muss verkauft sein, und was passiert danach? Ohne Frist kann sich der Verkauf über Jahre ziehen.</li>
+<li><b>Vollmacht:</b> Was darf der Dienstleister in Ihrem Namen tun (Teilungserklärung, Mietergespräche, Verkauf zu welchem Mindestpreis)?</li>
+<li><b>Kosten:</b> Wer trägt Aufmaß, Abgeschlossenheitsbescheinigung, Notar und Vertrieb – auch dann, wenn am Ende nicht verkauft wird?</li>
+<li><b>Vergütung:</b> Eine Beteiligung am Mehrerlös ist bei Maklern rechtlich heikel; die Gerichte haben hohe Anteile mehrfach als sittenwidrig gewertet. Lassen Sie einen solchen Vertrag von einem Anwalt prüfen.</li>
+</ul>
+
+<h2>Und die Steuer?</h2>
+<p>Haben Sie das Haus länger als zehn Jahre, ist der Gewinn beim Privatverkauf in der Regel steuerfrei – im Ganzen wie wohnungsweise. Beim Aufteilen kann das Finanzamt an gewerblichen Grundstückshandel denken; für lange vermietete Häuser gilt meist eine Ausnahme. Einzelheiten im Ratgeber <a href="/ratgeber/mehrfamilienhaus-verkaufen-steuer/">Mehrfamilienhaus verkaufen und Steuer</a>. Vor der Entscheidung mit dem Steuerberater sprechen.</p>
+
+<aside class="artikel-cta"><p><b>Sie haben ein konkretes Angebot auf dem Tisch?</b> Im kostenlosen Erstcheck rechnen wir beide Wege mit den Zahlen Ihres Hauses durch.</p><a class="btn" href="/#anfrage">Erstcheck anfragen</a> <a class="btn-link" href="/ratgeber/lohnt-sich-aufteilen-check/">Lohnt sich das Aufteilen?</a></aside>
+
+<h2>Häufige Fragen</h2>
+<div class="artikel-faq"><details><summary>Wie lange dauert das Aufteilen bis zum letzten Verkauf?</summary><p>In Dresden dauert die Abgeschlossenheitsbescheinigung nach unserer Erfahrung fünf bis sechs Wochen, die Teilungserklärung beim Notar etwa eine weitere Woche. Danach kommt der Vertrieb: bei acht Wohnungen etwa ein halbes Jahr. Rechnen Sie zur Vorsicht mit zwölf bis achtzehn Monaten bis zum letzten Verkauf.</p></details><details><summary>Bekomme ich während des Verkaufs weiter die Miete?</summary><p>Ja. Solange eine Wohnung Ihnen gehört, steht Ihnen ihre Miete zu. Mit dem Besitzübergang an den Käufer geht sie auf ihn über.</p></details><details><summary>Ab wann lohnt sich der Aufwand?</summary><p>Das entscheiden Sie. Eine einfache Regel: Liegt der Mehrbetrag im mittleren Szenario unter etwa fünf Prozent des Festpreises, wiegt er Aufwand und Unsicherheit selten auf. Der Rechner zeigt das als rote Ampel.</p></details></div>
+<p class="hinweis">Allgemeine Information, keine Rechts- oder Steuerberatung. Stand: 12. November 2026.</p>
+<h2>Weitere Ratgeber</h2>
+<ul class="artikel-mehr"><li><a href="/ratgeber/lohnt-sich-aufteilen-check/">Lohnt sich das Aufteilen? Der 2-Minuten-Check</a></li><li><a href="/ratgeber/aufteilungskosten-mehrfamilienhaus/">Was kostet das Aufteilen?</a></li><li><a href="/ratgeber/mehrfamilienhaus-verkaufen/">Mehrfamilienhaus verkaufen</a></li><li><a href="/ratgeber/mehrfamilienhaus-verkaufen-steuer/">Mehrfamilienhaus verkaufen und Steuer</a></li></ul>
+</main>
+
+<footer class="foot">
+  <div class="foot-grid">
+    <div>
+      <p class="foot-brand">Hausaufteilen</p>
+      <p>Ein Angebot der Saguttarius Capital GmbH, Berlin. Für Mehrfamilienhäuser in Dresden und Leipzig.</p>
+      <p><a href="/ratgeber/">Ratgeber</a> · <a href="/impressum/">Impressum</a> · <a href="/datenschutz/">Datenschutz</a></p>
+    </div>
+    <div>
+      <p><b>Hinweise.</b> Alle Rechnungen sind Beispiele ohne Gewähr. Eine Erlössteigerung ist nicht garantiert. Die Inhalte dieser Seite sind allgemeine Informationen und keine Rechts- oder Steuerberatung.</p>
+    </div>
+    <div>
+      <p><b>Bildnachweis.</b> Straße in Dresden: Foto von <a href="https://unsplash.com/@carrier_lost">Ian Taylor</a> auf <a href="https://unsplash.com/photos/MILXG7VDlo4">Unsplash</a> (zugeschnitten), unter der <a href="https://unsplash.com/license">Unsplash-Lizenz</a>.</p>
+    </div>
+  </div>
+</footer>
+<script src="/app.js" defer></script>
+</body>
+</html>
