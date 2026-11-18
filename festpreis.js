@@ -1,5 +1,5 @@
 // Festpreis jetzt oder aufteilen lassen? Sicherer Betrag gegen wahrscheinliches Ergebnis (Anlass: Verwalter-Frage 11.11.2026).
-// Modell: Kaufpreise der Wohnungen gehen an den Eigentümer, bis die Schwelle erreicht ist; darüber erhält er seinen Anteil.
+// Modell: Kaufpreise der Wohnungen (nach Vertrieb) gehen an den Eigentümer; die Vergütung eines Dienstleisters ist nicht eingerechnet.
 // Aufteilungskosten trägt der Eigentümer zu Beginn, Vertrieb geht vom Kaufpreis ab. Miete der unverkauften Wohnungen bleibt beim Eigentümer.
 // Barwert: monatlich abgezinst mit der Rendite, die der Eigentümer sonst erzielen würde. Keine Steuer, keine Rechtsberatung.
 (function (g) {
@@ -11,19 +11,15 @@
   ];
 
   function aufteilen(e, s = SZENARIEN[0]) {
-    const { flaeche, etw, kostenM2 = 0, vertrieb = 0.0952, schwelle = 0, anteil = 1, start = 2, dauer = 9, zins = 0, miete = 0 } = e;
+    const { flaeche, etw, kostenM2 = 0, vertrieb = 0.0952, start = 2, dauer = 9, zins = 0, miete = 0 } = e;
     const n = Math.max(1, Math.round(dauer * s.dauer)); // Verkaufsmonate
     const proMonat = (flaeche * etw * s.preis * (1 - vertrieb)) / n;
     const d = (t) => Math.pow(1 + zins, -t / 12);
-    let kum = 0, nominal = -flaeche * kostenM2, barwert = nominal;
+    let nominal = -flaeche * kostenM2, barwert = nominal;
     for (let t = 1; t <= start + n; t++) {
       const verkauft = t <= start ? 0 : (t - start - 1) / n; // Anteil verkauft zu Monatsbeginn
       let z = miete * (1 - verkauft);
-      if (t > start) {
-        const vor = kum; kum += proMonat;
-        const unter = Math.max(0, Math.min(kum, schwelle) - vor);
-        z += unter + (proMonat - unter) * anteil;
-      }
+      if (t > start) z += proMonat;
       nominal += z; barwert += z * d(t);
     }
     return { nominal, barwert, monate: start + n };

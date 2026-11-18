@@ -2,18 +2,15 @@
 const RADAR = "https://business-radar-0v2o.onrender.com";
 const SITE = "wohnungsweise";
 
-const VERTRIEB = 0.0952, MAKLER = 0.0357, ANTEIL = 0.5, DECKEL = 0.12, UST = 0.19;
+const VERTRIEB = 0.0952, MAKLER = 0.0357;
 
 // Reine Rechnung, exportiert für test.js. Alle Preise je m².
-function rechne({ area, whole, wish, unit, prep }) {
+// Ohne Vergütung: die wird individuell vereinbart (Sandro 18.11.2026).
+function rechne({ area, whole, unit, prep }) {
   const ganzBrutto = area * whole, makler = ganzBrutto * MAKLER, ganzNetto = ganzBrutto - makler;
   const brutto = area * unit, vertrieb = brutto * VERTRIEB, aufteilung = area * prep;
-  const netto = brutto - vertrieb - aufteilung, wunsch = area * wish;
-  const mehrerloes = Math.max(0, netto - wunsch);
-  const verguetung = Math.min(mehrerloes * ANTEIL, brutto * DECKEL) * (1 + UST);
-  const eigentuemer = netto - verguetung;
-  return { ganzBrutto, makler, ganzNetto, brutto, kosten: vertrieb + aufteilung, wunsch, verguetung, eigentuemer,
-    differenz: eigentuemer - ganzNetto, unterWunsch: netto < wunsch };
+  const netto = brutto - vertrieb - aufteilung;
+  return { ganzBrutto, makler, ganzNetto, brutto, kosten: vertrieb + aufteilung, netto, differenz: netto - ganzNetto };
 }
 
 // Marktwerte je Stadt (Gutachterausschuss 2026 + eigene Angebotsauswertung Dresden, n=58): Haus im Ganzen und ETW je m²
@@ -68,7 +65,6 @@ if (typeof document !== "undefined") {
   }
 
   // Rechner
-  // Sandro 04.10.2026: Vergütung und Wunschpreis vorerst nicht im Rechner – Erlös vor unserer Vergütung
   const ids = ["area", "whole", "unitp", "prep"];
   let used = false;
   function calc() {

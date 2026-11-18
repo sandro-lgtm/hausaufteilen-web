@@ -40,8 +40,6 @@
 <label>Erwarteter Wohnungspreis in €/m² <input type="number" id="f-etw" min="0" step="50" value="2650"></label>
 <label>Kosten der Aufteilung in €/m² (Aufmaß, Abgeschlossenheit, Teilungserklärung, Notar) <input type="number" id="f-kosten" min="0" step="5" value="60"></label>
 <label>Vertriebsprovision in % vom Kaufpreis <input type="number" id="f-vertrieb" min="0" max="30" step="0.01" value="9.52"></label>
-<label>Bis zu diesem Betrag geht jeder Erlös an Sie (Schwelle) in € <input type="number" id="f-schwelle" min="0" step="10000" value="1000000"></label>
-<label>Ihr Anteil am Erlös oberhalb der Schwelle in % <input type="number" id="f-anteil" min="0" max="100" step="5" value="50"></label>
 <label>Monate bis zum ersten Verkauf <input type="number" id="f-start" min="0" max="24" step="1" value="3"></label>
 <label>Monate vom ersten bis zum letzten Verkauf <input type="number" id="f-dauer" min="1" max="36" step="1" value="9"></label>
 <h2>Was Ihr Geld sonst bringt</h2>
@@ -54,7 +52,7 @@
 (function(){
 var el=function(i){return document.getElementById(i);},out=el("f-erg"),gezaehlt=false,eur=function(x){return Math.round(x).toLocaleString("de-DE")+" €";},v=function(i){return +el(i).value||0;};
 function rechne(ev){
- var e={flaeche:v("f-flaeche")||1,etw:v("f-etw"),kostenM2:v("f-kosten"),vertrieb:v("f-vertrieb")/100,schwelle:v("f-schwelle"),anteil:v("f-anteil")/100,start:v("f-start"),dauer:v("f-dauer")||1,zins:v("f-zins")/100,miete:v("f-miete")};
+ var e={flaeche:v("f-flaeche")||1,etw:v("f-etw"),kostenM2:v("f-kosten"),vertrieb:v("f-vertrieb")/100,start:v("f-start"),dauer:v("f-dauer")||1,zins:v("f-zins")/100,miete:v("f-miete")};
  var f={preis:v("f-preis"),faellig:v("f-faellig")},fp=Festpreis.festpreis({preis:f.preis,faellig:f.faellig,zins:e.zins,miete:e.miete});
  var zeilen="<tr><td><b>Festpreis</b></td><td>"+eur(fp.nominal)+"</td><td>"+eur(fp.barwert)+"</td><td>–</td><td>"+f.faellig+"</td></tr>",schlecht=0,mittel=0;
  Festpreis.SZENARIEN.forEach(function(s,i){var r=Festpreis.aufteilen(e,s),d=r.barwert-fp.barwert;if(i===1)mittel=d;if(i===2)schlecht=d;
@@ -70,20 +68,20 @@ function rechne(ev){
 el("fp").addEventListener("input",rechne);rechne();
 })();
 </script>
-<p class="hinweis">Modellrechnung ohne Gewähr. Annahmen: Kaufpreise fließen gleichmäßig über die Verkaufsmonate, die Kosten der Aufteilung zahlen Sie zu Beginn, die Miete unverkaufter Wohnungen bleibt bei Ihnen. Die drei Szenarien sind eigene Annahmen, keine Marktprognose. Steuern sind nicht berücksichtigt.</p>
+<p class="hinweis">Modellrechnung ohne Gewähr. Annahmen: Kaufpreise fließen gleichmäßig über die Verkaufsmonate, die Kosten der Aufteilung zahlen Sie zu Beginn, die Miete unverkaufter Wohnungen bleibt bei Ihnen. Die drei Szenarien sind eigene Annahmen, keine Marktprognose. Steuern und die Vergütung eines Dienstleisters sind nicht berücksichtigt.</p>
 
 <h2>Warum zwei Zahlen: Summe und Barwert</h2>
 <p>Ein Euro in zwölf Monaten ist weniger wert als ein Euro heute, weil Sie ihn so lange nicht anlegen oder tilgen können. Der Barwert rechnet alle Zahlungen auf heute zurück, mit der Rendite, die Sie selbst angeben. Erst der Barwert macht den Festpreis und das Aufteilen vergleichbar. Bis zum Verkauf jeder Wohnung bekommen Sie weiter deren Miete; auch das rechnet der Rechner mit.</p>
 
 <h2>Wie sicher ist „sicher“?</h2>
-<p>Der Festpreis ist sicher, sobald der Kaufvertrag beurkundet und der Käufer finanziert ist. Beim Aufteilen ist nichts garantiert, auch nicht die Schwelle: Sie bekommt zuerst alle Kaufpreise, aber nur so viele, wie tatsächlich eingehen. Wer auf Nummer sicher gehen will, fragt nach einer Absicherung, etwa einer Ankaufszusage für Wohnungen, die nach Ablauf der Frist noch nicht verkauft sind, oder einer Bankbürgschaft. Beides kostet den Anbieter Geld und senkt meist Ihren Anteil.</p>
+<p>Der Festpreis ist sicher, sobald der Kaufvertrag beurkundet und der Käufer finanziert ist. Beim Aufteilen ist nichts garantiert: Sie bekommen nur die Kaufpreise, die tatsächlich eingehen. Wer auf Nummer sicher gehen will, fragt nach einer Absicherung, etwa einer Ankaufszusage für Wohnungen, die nach Ablauf der Frist noch nicht verkauft sind, oder einer Bankbürgschaft. Beides kostet den Anbieter Geld und schlägt sich meist in den Konditionen nieder.</p>
 
 <h2>Worauf es im Vertrag ankommt</h2>
 <ul>
 <li><b>Frist:</b> Bis wann muss verkauft sein, und was passiert danach? Ohne Frist kann sich der Verkauf über Jahre ziehen.</li>
 <li><b>Vollmacht:</b> Was darf der Dienstleister in Ihrem Namen tun (Teilungserklärung, Mietergespräche, Verkauf zu welchem Mindestpreis)?</li>
 <li><b>Kosten:</b> Wer trägt Aufmaß, Abgeschlossenheitsbescheinigung, Notar und Vertrieb – auch dann, wenn am Ende nicht verkauft wird?</li>
-<li><b>Vergütung:</b> Eine Beteiligung am Mehrerlös ist zulässig, wenn sie angemessen gedeckelt und transparent vereinbart ist. Lassen Sie einen solchen Vertrag vor Unterschrift prüfen.</li>
+<li><b>Vergütung:</b> Unsere Vergütung vereinbaren wir individuell und transparent vor Projektbeginn. Lassen Sie den Vertrag vor Unterschrift prüfen.</li>
 </ul>
 
 <h2>Und die Steuer?</h2>
