@@ -1,4 +1,3 @@
-# Testphase: Name und Domain nicht final. Beim Launch ersetzen durch "Allow: /" (siehe README).
 User-agent: *
-Disallow: /
+Allow: /
 Sitemap: https://hausaufteilen.saguttarius.com/sitemap.xml

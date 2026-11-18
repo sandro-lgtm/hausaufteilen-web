@@ -125,12 +125,13 @@ if (typeof document !== "undefined") {
       zusammenfassung: `${d.ort}, ${d.wohnungen} WE, ${d.flaeche} m², >10 J.: ${d.haltedauer}, ${d.rolle}${d.telefon ? ", Tel. " + d.telefon : ""}` };
     form.querySelector("button").disabled = true;
     try {
-      await fetch(RADAR + "/api/waitlist", { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain" },
+      const res = await fetch(RADAR + "/api/waitlist", { method: "POST", headers: { "Content-Type": "text/plain" },
         body: JSON.stringify({ slug: SITE, email: d.email, utm }) });
+      if (!res.ok) throw new Error("HTTP " + res.status);
       msg.className = "form-msg ok"; msg.textContent = "Danke. Ihre Anfrage ist angekommen – wir melden uns per E-Mail.";
       form.reset(); hit("/#anfrage-gesendet");
     } catch {
-      msg.className = "form-msg err"; msg.textContent = "Das hat nicht geklappt. Bitte schreiben Sie uns an info@saguttarius.com.";
+      msg.className = "form-msg err"; msg.textContent = "Ihre Anfrage konnte nicht gesendet werden. Bitte schreiben Sie uns direkt an info@saguttarius.com.";
     } finally { form.querySelector("button").disabled = false; }
   });
 }
